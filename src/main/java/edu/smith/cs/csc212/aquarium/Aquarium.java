@@ -32,7 +32,7 @@ public class Aquarium extends GFX {
 	 * Put a snail on the top of the tank.
 	 */
 	Snail algorithm = new Snail(177, Snail.HEIGHT + 1, "top");
-
+	
 	/**
 	 * This is a constructor, code that runs when we make a new Aquarium.
 	 */
@@ -40,20 +40,59 @@ public class Aquarium extends GFX {
 		// Here we ask GFX to make our window of size WIDTH and HEIGHT.
 		// Don't change this here, edit the variables instead.
 		super(WIDTH, HEIGHT);
+		
 	}
 	
-	Fish nemo = new Fish(Color.MAGENTA, 250, 250, true, true, 1);
-	Fish marlin = new Fish(Color.GREEN, 100, 400, false, false, -1);
-	Fish newguy = new Fish(Color.RED, 150, 300, true, false, 1);
-	Fish guppy = new Fish(Color.yellow, 300, 150, false, true, -1);
+	
+	
+	Bubbles one = new Bubbles(400, 100 );
+	Bubbles two = new Bubbles(420, 220 );
+	Bubbles three = new Bubbles(400, 300);
+	Bubbles four = new Bubbles(410, 350 );
+	Bubbles five = new Bubbles(400, 470 );
+	Bubbles six = new Bubbles(430, 550 );
+	Bubbles seven = new Bubbles(410, 600 );
+	Bubbles eight = new Bubbles(400, 730);
+	Bubbles nine = new Bubbles(440, 750 );
+	Bubbles ten = new Bubbles(425, 800);
 
+	Fish nemo = new Fish(Color.MAGENTA, 250, 250, true, 1);
+	Fish marlin = new Fish(Color.GREEN, 100, 400, false, -1);
+	Fish newguy = new Fish(Color.RED, 150, 300, false, 1);
+	Fish guppy = new Fish(Color.yellow, 300, 150, true, -1);
+	
+	public double green = 0;
+	
 	@Override
 	public void draw(Graphics2D g) {
 		// Draw the "ocean" background.
-		g.setColor(Color.blue);
+		int greenvalue;
+		greenvalue = (int) Math.round(green);
+		Color color = new Color(51, greenvalue , 255);
+		g.setColor(color);
 		g.fillRect(0, 0, getWidth(), getHeight());
-
-		// Draw the fish!
+		// Draw the fish
+		
+		one.swim(g);
+		two.draw(g);
+		two.swim(g);
+		three.draw(g);
+		three.swim(g);
+		four.draw(g);
+		four.swim(g);
+		five.draw(g);
+		five.swim(g);
+		six.draw(g);
+		six.swim(g);
+		seven.draw(g);
+		seven.swim(g);
+		eight.draw(g);
+		eight.swim(g);
+		nine.draw(g);
+		nine.swim(g);
+		ten.draw(g);
+		ten.swim(g);
+		
 		nemo.draw(g);
 		nemo.swim(g);
 		marlin.draw(g);
@@ -63,7 +102,7 @@ public class Aquarium extends GFX {
 		guppy.draw(g);
 		guppy.swim(g);
 		
-		
+		algorithm.draw(g, green);
 		
 	}
 
