@@ -50,15 +50,15 @@ public class Snail {
 	 * TODO: move the snail about.
 	 */
 	public void move() {
-
+		this.x += 1;
+		
 	}
-
 	/**
 	 * Draw the snail at the current setup.
 	 * 
 	 * @param g - the window to draw to.
 	 */
-	public void draw(Graphics2D g) {
+	public void draw(Graphics2D g ) {
 		// By calling move here, if we want to move our snail, we can do so.
 		// Move gets called by draw, so whenever draw gets called.
 		this.move();
@@ -139,5 +139,14 @@ public class Snail {
 		g.fill(shell3);
 		g.setColor(Color.black);
 		g.draw(shell3);
+	}
+	
+	public void drawsleepysnail(Graphics2D g) {
+		Shape sleepyL = new Ellipse2D.Double(-4, -28, 12, 12);
+		Shape sleepyR = new Ellipse2D.Double(35 - 4, -28, 12, 12);
+		g.setColor(Color.red);
+		g.fill(sleepyL);
+		g.fill(sleepyR);
+		
 	}
 }

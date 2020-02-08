@@ -23,19 +23,26 @@ public class Fish {
 	
 	
 	
-	public Fish(Color color, int x, int y, boolean isLittle, boolean isLeft, int direction) {
+	public Fish(Color color, int x, int y, boolean isLittle, int direction) {
 		this.color = color;
 		this.x = x;
 		this.y = y;
 		this.isLittle = isLittle;
-		this.isLeft = isLeft;
 		this.direction = direction;
-		
 		
 		Random destX = new Random();
 		Random destY = new Random();
 		this.destX = destX.nextInt(500);
 		this.destY = destY.nextInt(500);
+		
+		//CHeck = System.out.println("check point one" + ' '+ this.x + ' ' + this.y + ' ' + this.destX + ' ' + this.destY);
+		
+		if (this.destX > x) {
+			this.isLeft = false;
+		}
+		else {
+			this.isLeft = true;
+		}
 	}
 	public void swim(Graphics2D g) {
 		if (this.y < this.destY) {
@@ -44,19 +51,29 @@ public class Fish {
 		if (this.y > this.destY) {
 			this.y -=1;
 		}
-		if (this.x<this.destY){
+		if (this.x < this.destX){
 			this.x +=1;
 		}
-		if (this.x>this.destY){
+		if (this.x > this.destX){
 			this.x -=1;
 		}
-		if ((this.x==this.destX)&&(this.y==destY)) {
+		if ((this.x==this.destX)&&(this.y==this.destY)) {
 			Random temp = new Random();
 			Random temp2 = new Random();
 			
 			this.destX = temp.nextInt(500);
 			this.destY = temp2.nextInt(500);
+			
+			if (this.destX > x) {
+				this.isLeft = false;
+			}
+			else {
+				this.isLeft = true;
+			}
+		
+			
 		}
+
 	}
 	
 	public void draw(Graphics2D g) {
